@@ -11,11 +11,10 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "co.ocho.myapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +24,23 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": ["sentry-expo"],
+    "extra": {
+      "eas": {
+        "projectId": "8daf60d4-7e74-4a27-bcfb-aeaba84b75ec"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "ocho-co",
+            "project": "test-app"
+          }
+        }
+      ]
     }
   }
 }
